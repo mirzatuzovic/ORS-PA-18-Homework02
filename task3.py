@@ -14,12 +14,18 @@
 ===================================================
 """
 
+def cube_volume(a):
+    if not (isinstance(a, float) or isinstance(a, int)):
+        return -1
+
+    return abs(a)**3
 
 
 def main():
 
-    side_in_cm = 5.0
+    side_in_cm = -5.0
     volume_of_cube = cube_volume(side_in_cm)
     print("Volume of a cube is: ", volume_of_cube)
 
 main()
+
