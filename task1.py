@@ -15,17 +15,46 @@
 ===================================================
 """
 
-#da li string moze da se konvertuje u broj
-def  moze_li_u_float(string_broj):
-    if not isinstance(string_broj,str):
-        return False
+def can_string_be_float(user_value):
 
-    dozvoljeni_karakteri = ['0','1','2','3','4','5','6','7','8','9','.','-']
+    dozvoljeni_karakteri = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-']
 
-    for karakter in string_broj:
-        if karakter not in dozvoljeni_karakteri:
-           return False
+    for ch in user_value:
+        if ch not in dozvoljeni_karakteri:
+            return False
+
+        broj_tacaka = 0
+
+        for ch in user_value:
+            if ch == '.':
+                broj_tacaka = broj_tacaka + 1
+
+        if broj_tacaka > 1:
+            return False
+
+        broj_minusa = 0
+
+        for ch in user_value:
+            if ch == '-':
+                broj_minusa = broj_minusa + 1
+
+        if broj_minusa > 1:
+            return False
+
+        if broj_minusa == 1:
+            if user_value[0] != '-':
+                return False
 
     return True
 
-print(moze_li_u_float("5"))
+
+def main():
+
+    user_value = input("Enter string which will be evaluated: ")
+
+    if can_string_be_float(user_value):
+        print(float(user_value))
+    else:
+        print("Unijeti string se ne moze pretvoriti u float!")
+
+main()
