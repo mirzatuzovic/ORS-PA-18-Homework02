@@ -18,7 +18,7 @@
 
 def can_string_be_float(user_value):
 
-    dozvoljeni_karakteri = ['0','1','2','3','4','5','6','7','8','9','.','-']
+    dozvoljeni_karakteri = ['0','1','2','3','4','5','6','7','8','9','.']
 
     for ch in user_value:
 
@@ -33,19 +33,6 @@ def can_string_be_float(user_value):
 
         if broj_tacaka > 1:
             return False
-
-        broj_minusa = 0
-
-        for ch in user_value:
-            if ch=='-':
-                broj_minusa = broj_minusa + 1
-
-        if broj_minusa > 1:
-            return False
-
-        if broj_minusa == 1:
-            if user_value[0] != '-':
-                return False
 
     return True
 
